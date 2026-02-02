@@ -1,49 +1,19 @@
-package api.caixaTech.model;
+package api.caixaTech.dto;
 
 import api.caixaTech.model.enums.Status;
-import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "loan_table")
-public class LoanEntity {
+public class LoanResponseDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
-    @Column(nullable = false, length = 120)
+    private Long id;
     private String applicantName;
-
-    @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal amount;
-
-    @Column(nullable = false, length = 3)
     private String currency;
-
-    @Column(nullable = false, length = 20)
     private String identityDocument;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
     private Status status;
-
-    @Column(nullable = false)
     private LocalDateTime createdAt;
-
-    public LoanEntity() {}
-
-    public LoanEntity(LocalDateTime createdAt, Status status, String identityDocument, String currency, BigDecimal amount, String applicantName, Long id) {
-        this.createdAt = createdAt;
-        this.status = status;
-        this.identityDocument = identityDocument;
-        this.currency = currency;
-        this.amount = amount;
-        this.applicantName = applicantName;
-        this.id = id;
-    }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
