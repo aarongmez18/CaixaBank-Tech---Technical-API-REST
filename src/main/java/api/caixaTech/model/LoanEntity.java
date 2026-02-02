@@ -3,19 +3,22 @@ package api.caixaTech.model;
 import api.caixaTech.model.enums.Status;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "loan_table")
 public class LoanEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(nullable = false, length = 120)
     private String applicantName;
 
     @Column(nullable = false, precision = 19, scale = 2)
-    private Long amount;
+    private BigDecimal amount;
 
     @Column(nullable = false, length = 3)
     private String currency;
