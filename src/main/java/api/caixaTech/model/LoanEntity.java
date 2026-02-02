@@ -35,7 +35,7 @@ public class LoanEntity {
 
     public LoanEntity() {}
 
-    public LoanEntity(LocalDateTime createdAt, Status status, String identityDocument, String currency, Long amount, String applicantName, Long id) {
+    public LoanEntity(LocalDateTime createdAt, Status status, String identityDocument, String currency, BigDecimal amount, String applicantName, Long id) {
         this.createdAt = createdAt;
         this.status = status;
         this.identityDocument = identityDocument;
@@ -53,11 +53,11 @@ public class LoanEntity {
         this.id = id;
     }
 
-    public Long getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
