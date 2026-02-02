@@ -1,6 +1,7 @@
 package api.caixaTech.dto;
 
 import api.caixaTech.model.enums.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -13,6 +14,8 @@ public class LoanResponseDTO {
     private String currency;
     private String identityDocument;
     private Status status;
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime createdAt;
 
     public Long getId() { return id; }
